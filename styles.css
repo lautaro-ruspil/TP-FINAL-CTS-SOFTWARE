@@ -1,0 +1,123 @@
+:root {
+  --azul_oceano_profundo: #003B73;
+  --celeste_conicet: #00A6FB;
+  --coral_biologico: #FF6B6B;
+  --gris_perla: #E6E8EA;
+  --azul_grisaceo: #2E4057;
+  --verde_algal: #3BA99C;
+}
+
+/* ====== BASE ====== */
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--gris_perla);
+  color: var(--azul_grisaceo);
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+
+/* ====== HEADER ====== */
+header {
+  background-color: var(--azul_oceano_profundo);
+  color: white;
+  padding: 2em 1em;
+  text-align: center;
+}
+
+header h1 {
+  margin-bottom: 0.5em;
+  font-size: 1.8rem;
+  letter-spacing: 0.5px;
+}
+
+/* ====== NAV ====== */
+nav {
+  background-color: var(--celeste_conicet);
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0.8em 0;
+  display: flex;
+  justify-content: center;
+  gap: 2em;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: var(--coral_biologico);
+}
+
+/* ====== SECCIONES ====== */
+section {
+  padding: 3em 1.5em;
+  text-align: center;
+}
+
+section h2 {
+  color: var(--azul_oceano_profundo);
+  margin-bottom: 1em;
+}
+
+/* ====== GALERÍA ====== */
+.galeria {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.5em;
+  padding: 2em;
+}
+
+.card {
+  background-color: var(--celeste_conicet);
+  color: white;
+  border-radius: 12px;
+  padding: 1.2em;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px var(--verde_algal);
+}
+
+.card img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 0.5em;
+}
+
+/* ====== BOTONES (si los agregás luego) ====== */
+button {
+  background-color: var(--celeste_conicet);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 0.6em 1.2em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: var(--coral_biologico);
+}
+
+/* ====== FOOTER ====== */
+footer {
+  background-color: var(--azul_oceano_profundo);
+  color: white;
+  text-align: center;
+  padding: 1.5em 1em;
+  font-size: 0.9em;
+  margin-top: 2em;
+  border-top: 4px solid var(--celeste_conicet);
+}
