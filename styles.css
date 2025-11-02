@@ -1,123 +1,158 @@
 :root {
-  --azul_oceano_profundo: #003B73;
-  --celeste_conicet: #00A6FB;
-  --coral_biologico: #FF6B6B;
-  --gris_perla: #E6E8EA;
-  --azul_grisaceo: #2E4057;
-  --verde_algal: #3BA99C;
+    --azul_oceano_profundo: #003b73;
+    --celeste_conicet: #00a6fb;
+    --coral_biologico: #ff6b6b;
+    --gris_perla: #f5f7fa;
+    --azul_grisaceo: #2e4057;
+    --verde_algal: #3ba99c;
 }
 
 /* ====== BASE ====== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background-color: var(--gris_perla);
-  color: var(--azul_grisaceo);
-  margin: 0;
-  padding: 0;
-  line-height: 1.6;
+    font-family: "Poppins", "Segoe UI", sans-serif;
+    background-color: var(--gris_perla);
+    color: var(--azul_grisaceo);
+    line-height: 1.7;
+    scroll-behavior: smooth;
 }
 
 /* ====== HEADER ====== */
 header {
-  background-color: var(--azul_oceano_profundo);
-  color: white;
-  padding: 2em 1em;
-  text-align: center;
+    background: linear-gradient(
+        90deg,
+        var(--celeste_conicet),
+        var(--azul_oceano_profundo)
+    );
+    color: white;
+    padding: 1.5em 2em; /* un poco menos de padding para centrar visualmente */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
-header h1 {
-  margin-bottom: 0.5em;
-  font-size: 1.8rem;
-  letter-spacing: 0.5px;
+.container-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* centra verticalmente título y menú */
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-/* ====== NAV ====== */
-nav {
-  background-color: var(--celeste_conicet);
+.logo h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: white;
+    text-decoration: none;
+    line-height: 1; /* elimina espacio vertical extra */
+    margin: 0;
+    padding: 0;
+}
+
+.logo {
+    text-decoration: none;
+    display: flex;
+    align-items: center; /* alinea texto si hay icono u otro elemento */
 }
 
 nav ul {
-  list-style: none;
-  margin: 0;
-  padding: 0.8em 0;
-  display: flex;
-  justify-content: center;
-  gap: 2em;
+    list-style: none;
+    display: flex;
+    gap: 2.8em;
+    align-items: center; /* centra los enlaces entre sí */
+    margin: 0;
 }
 
 nav a {
-  color: white;
-  text-decoration: none;
-  font-weight: 600;
-  transition: color 0.3s ease;
+    color: white;
+    font-weight: 600;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    text-decoration: none;
+    padding: 0.3em 0; /* ajusta altura sin descentrar */
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+nav a::after {
+    content: "";
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background-color: var(--coral_biologico);
+    transition: width 0.3s ease;
 }
 
 nav a:hover {
-  color: var(--coral_biologico);
+    color: var(--coral_biologico);
 }
 
-/* ====== SECCIONES ====== */
-section {
-  padding: 3em 1.5em;
-  text-align: center;
+nav a:hover::after {
+    width: 100%;
 }
 
-section h2 {
-  color: var(--azul_oceano_profundo);
-  margin-bottom: 1em;
+/* ====== LINK ACTIVO ====== */
+nav a.active {
+    color: var(--coral_biologico);
+    cursor: default;
 }
 
-/* ====== GALERÍA ====== */
-.galeria {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 1.5em;
-  padding: 2em;
-}
-
-.card {
-  background-color: var(--celeste_conicet);
-  color: white;
-  border-radius: 12px;
-  padding: 1.2em;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-.card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 15px var(--verde_algal);
-}
-
-.card img {
-  width: 100%;
-  border-radius: 8px;
-  margin-bottom: 0.5em;
-}
-
-/* ====== BOTONES (si los agregás luego) ====== */
-button {
-  background-color: var(--celeste_conicet);
-  color: white;
-  border: none;
-  border-radius: 8px;
-  padding: 0.6em 1.2em;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-button:hover {
-  background-color: var(--coral_biologico);
+nav a.active::after {
+    content: "";
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--coral_biologico);
 }
 
 /* ====== FOOTER ====== */
 footer {
-  background-color: var(--azul_oceano_profundo);
-  color: white;
-  text-align: center;
-  padding: 1.5em 1em;
-  font-size: 0.9em;
-  margin-top: 2em;
-  border-top: 4px solid var(--celeste_conicet);
+    background-color: var(--azul_oceano_profundo);
+    color: white;
+    text-align: center;
+    padding: 2em 1em;
+    font-size: 0.9em;
+    border-top: 5px solid var(--celeste_conicet);
+    margin-top: 4em;
+}
+
+footer p {
+    margin: 0;
+}
+
+/* ====== RESPONSIVE ====== */
+@media (max-width: 768px) {
+    .container-header {
+        flex-direction: column;
+        gap: 1em;
+    }
+
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1em;
+    }
+
+    section {
+        padding: 3em 1.5em;
+    }
+
+    section h2 {
+        font-size: 1.8rem;
+    }
+
+    .logo h1 {
+        font-size: 1.4rem;
+        text-align: center;
+    }
 }
